@@ -60,4 +60,4 @@ Look for errors in AppDaemon log, this application logs all relevant information
 
 Below is a screenshot from Grafana showing data from one TRV performing its duties.
 
-![Sample data from Grafana](images/2019-12-28_15-41-00.png)
+![Sample data from Grafana](https://github.com/jmarsik/ad-eurotronic-trv-valvepos/blob/master/images/2019-12-28_15-41-00.png?raw=true)
