@@ -10,7 +10,7 @@ Maybe other TRVs from EUROTRONIC will work as well.
 
 ## Features
 
-* allows access to `valve position (%)` value from Z-Wave TRVs in Home Assistant
+* allows access to `valve position (%)` value from Z-Wave TRVs in [Home Assistant](https://www.home-assistant.io/)
   * normally Home Assistant doesn't expose this value (at least in version 0.103)
 * periodically reads OpenZWave log file and parses values from there
 * this value is useful:
