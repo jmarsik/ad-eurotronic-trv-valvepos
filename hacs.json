@@ -1,0 +1,5 @@
+{
+    "name": "EUROTRONIC TRV Valve position helper",
+    "render_readme": true,
+    "homeassistant": "0.103.0"
+}

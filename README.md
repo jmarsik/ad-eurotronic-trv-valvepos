@@ -1,5 +1,7 @@
 # EUROTRONIC TRV Valve position helper
 
+[![hacs_badge](https://img.shields.io/badge/HACS-Default-orange.svg)](https://github.com/custom-components/hacs)
+
 Small helper [AppDaemon](https://github.com/home-assistant/appdaemon) application for EUROTRONIC Z-Wave TRVs.
 
 __SPIRIT Z-Wave Plus__ is definitely supported: [Product page](https://eurotronic.org/produkte/z-wave-heizkoerperthermostat/spirit-z-wave-plus/) | [Z-Wave Device Database Entry](https://www.cd-jackson.com/index.php/zwave/zwave-device-database/zwave-device-list/devicesummary/710)
@@ -27,6 +29,10 @@ More information:
 * https://github.com/home-assistant/home-assistant/pull/18138
 * https://community.home-assistant.io/t/eurotronic-spirit-temperature-not-changing/32335
 
+## Installation
+
+Use [HACS](https://github.com/custom-components/hacs) or [download](https://github.com/jmarsik/ad-eurotronic-trv-valvepos/releases) the `eurotronic-trv-valvepos` directory from inside the `apps` directory here to your local `apps` directory, then add the configuration to enable the `eurotronic-trv-valvepos` module.
+
 ## AppDaemon app configuration
 
 ```yaml
@@ -37,3 +43,21 @@ eurotronic-trv-valvepos:
   look_for_productname: "EUR_SPIRITZ Wall Radiator Thermostat"
   refresh_seconds: 300
 ```
+
+Key | Required | Type | Default | Description
+-- | -- | -- | -- | --
+`module` | True | string | | Module name, should be `eurotronic-trv-valvepos`
+`class` | True | string | | App class name, should be `EurotronicTRVValvePos`
+`ozw_log_path` | False | string | `/config/OZW_Log.txt` | Path to OZW log file, default works in [Hass.io](https://www.home-assistant.io/hassio/)
+`look_for_productname` | False | string | `EUR_SPIRITZ Wall Radiator Thermostat` | Z-Wave product name to look for when searching for TRV Z-Wave device entities, default works for SPIRIT Z-Wave Plus TRV
+`refresh_seconds` | False | integer | 300 | Seconds between log scans
+
+## Troubleshooting
+
+Look for errors in AppDaemon log, this application logs all relevant information. You can even turn DEBUG logging on to see a little bit more.
+
+## Sample data
+
+Below is a screenshot from Grafana showing data from one TRV performing its duties.
+
+![Sample data from Grafana](images/2019-12-28_15-41-00.png)
