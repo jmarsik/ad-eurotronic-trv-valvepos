@@ -9,7 +9,8 @@ import datetime
 class EurotronicTRVValvePos(hass.Hass):
 
     def initialize(self):
-        self.run_every(self.read_valvepos_from_log, datetime.datetime.now()+datetime.timedelta(0,15), int(self.args.get("refresh_seconds", str(5 * 60))))
+        # start time of "run every" task is set to 15 seconds in the future to avoid "start cannot be in the past" errors from AppDaemon
+        self.run_every(self.read_valvepos_from_log, datetime.datetime.now() + datetime.timedelta(0, 15), int(self.args.get("refresh_seconds", str(5 * 60))))
 
     def read_valvepos_from_log(self, kwargs):
         ozw_log_path = self.args.get("ozw_log_path", "/config/OZW_Log.txt")
