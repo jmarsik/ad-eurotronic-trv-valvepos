@@ -24,6 +24,10 @@ class EurotronicTRVValvePos(hass.Hass):
 
             zwaves = self.get_state("zwave")
             for entity, v in zwaves.items():
+                # ignore entities without product_name attribute
+                if "product_name" not in v["attributes"]:
+                    continue;
+
                 # iterate over zwave domain entities, look for specific "product_name" attribute value
                 # that value indicates that the entity is Z-Wave device entity for EUROTRONIC TRV
                 if (v["attributes"]["product_name"] == self.args.get("look_for_productname", "EUR_SPIRITZ Wall Radiator Thermostat")):
